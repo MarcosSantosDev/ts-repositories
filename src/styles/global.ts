@@ -5,11 +5,16 @@ interface PropsGlobalStyled {
 }
 
 export default createGlobalStyle`
-  body {
-    box-sizing: border-box;
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    color: ${(props:PropsGlobalStyled) => (props.dark ? 'white' : 'black')};
-    background-color: ${(props:PropsGlobalStyled) => (props.dark ? 'black' : 'white')};
+    background: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
   }
 `;
