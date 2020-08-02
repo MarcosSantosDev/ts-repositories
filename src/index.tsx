@@ -5,7 +5,7 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 import light from './styles/themes/light';
 import dark from './styles/themes/dark';
 
-import usePersistedState from './utils/usePersistedState';
+import usePersistedState from './hooks/usePersistedState';
 
 import ListRepositoriesByUser from './pages/ListRepositoriesByUser';
 

@@ -1,9 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-interface PropsGlobalStyled {
-  dark?: boolean
-}
-
 export default createGlobalStyle`
   * {
     margin: 0;

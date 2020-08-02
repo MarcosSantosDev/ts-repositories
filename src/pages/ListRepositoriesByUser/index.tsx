@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { listRepositoriesByUserName } from '../../services/GitHub/repositories';
 import CardRepository from '../../components/CardRepository';
+
 import {
   WrapperCard,
 } from './styled';
@@ -24,17 +25,15 @@ const ListRepositoriesByUser = () => {
   }, []);
 
   return (
-    <div className="ListRepositoriesByUser">
-      <WrapperCard>
-        {
-          repositories.map((repository) => (
-            <CardRepository key={repository.id}>
-              {repository.name}
-            </CardRepository>
-          ))
-        }
-      </WrapperCard>
-    </div>
+    <WrapperCard>
+      {
+        repositories.map((repository) => (
+          <CardRepository key={repository.id}>
+            {repository.name}
+          </CardRepository>
+        ))
+      }
+    </WrapperCard>
   );
 };
 
