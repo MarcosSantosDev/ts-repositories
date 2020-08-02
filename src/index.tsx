@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import GlobalStyle from './styled.global';
-import App from './components/App';
+import ListRepositoriesByUser from './pages/ListRepositoriesByUser';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <GlobalStyle />
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
+const App = (
+  <>
+    <React.StrictMode>
+      <GlobalStyle dark />
+      <ListRepositoriesByUser />
+    </React.StrictMode>
+  </>
 );
+
+ReactDOM.render(App, document.getElementById('root'));
