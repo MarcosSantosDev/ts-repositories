@@ -13,15 +13,7 @@ Clone the project:
 git clone https://github.com/MarcosSantosDev/ts-repositories.git
 ```
 
-### Prerequisites
-
-You need to have installed on your machine:
-
-- [node](https://nodejs.org/en/)
-- [yarn](https://yarnpkg.com/)
-
-
-### Installing
+### Install dependencies
 
 This application has dependencies that must be installed to ensure its operation
 
