@@ -32,12 +32,13 @@ After the app has been started open a web browser and navigate to `http://localh
 ### yarn build
 > Bundles the app into static files for production.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 ## Author
 
 - Marcos Santos - Software Developer 
 
   - [GitHub](https://github.com/MarcosSantosDev) / [Linkedin](https://www.linkedin.com/in/marcossantosdev/)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
