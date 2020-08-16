@@ -3,7 +3,7 @@
 #### This is an application that lists a user's repositories, with a choice between GitHub or GitLab providers.
 Data consumption APIs:
 - [GitHub API](https://developer.github.com/v3/)
-- [GitLab API](https://gitlab.com/api/v4/)
+- [GitLab API](https://docs.gitlab.com/ee/api/)
 
 ## Getting Started
 
