@@ -5,7 +5,9 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 import light from './styles/themes/light';
 import dark from './styles/themes/dark';
 
-import usePersistedState from './utils/usePersistedState';
+import usePersistedState from './hooks/usePersistedState';
+
+import ListRepositoriesByUser from './pages/ListRepositoriesByUser';
 
 import GlobalStyle from './styles/global';
 import Header from './components/Header';
@@ -23,6 +25,7 @@ const App = () => {
         <div className="app">
           <GlobalStyle />
           <Header toggleTheme={toggleTheme} />
+          <ListRepositoriesByUser />
         </div>
       </ThemeProvider>
     </React.StrictMode>
