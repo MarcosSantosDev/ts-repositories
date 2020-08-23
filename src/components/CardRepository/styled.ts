@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Card = styled.div`
+export const Card = styled.div`
   display: grid;
-  grid-template-columns: 20px auto;
+  grid-template-columns: auto;
   grid-template-rows: 1fr;
   grid-column-gap: 30px;
   justify-content: flex-start;
@@ -17,6 +17,15 @@ const Card = styled.div`
   border: 1px solid ${(props) => props.theme.colors.text};
 `;
 
-export {
-  Card,
-};
+export const Link = styled.a`
+  color: ${(props) => props.theme.colors.text};
+  max-width: 280px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;

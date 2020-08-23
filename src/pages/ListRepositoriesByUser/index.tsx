@@ -12,6 +12,9 @@ import UserInformation from '../../components/UserInformation';
 import {
   Container,
   ContainerInformationUser,
+  ContainerRepositories,
+  ContentActions,
+  ContentTitle,
   ContainerCard,
 } from './styled';
 
@@ -40,13 +43,18 @@ const ListRepositoriesByUser = () => {
         {userInfo && <UserInformation userInfo={userInfo} />}
       </ContainerInformationUser>
 
-      <ContainerCard>
-        {
-          repositories.map((repository) => (
-            <CardRepository key={repository.id} repository={repository} />
-          ))
-        }
-      </ContainerCard>
+      <ContainerRepositories>
+        <ContentActions>
+          <ContentTitle>Personal Projects</ContentTitle>
+        </ContentActions>
+        <ContainerCard>
+          {
+            repositories.map((repository) => (
+              <CardRepository key={repository.id} repository={repository} />
+            ))
+          }
+        </ContainerCard>
+      </ContainerRepositories>
     </Container>
   );
 };

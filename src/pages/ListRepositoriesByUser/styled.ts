@@ -12,37 +12,19 @@ export const ContainerInformationUser = styled.div`
   grid-column: 1 / 2;
 `;
 
-export const ContainerAvatar = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-export const ImgAvatar = styled.img`
-  border-radius: 50%;
-  height: 280px;
-`;
-
-export const ContainerInformation = styled.div`
-  padding: 10px 30px;
-`;
-
-export const ContentDescription = styled.span`
-  font-size: 16px;
-`;
-
-export const ContentActives = styled.div`
-  display: flex;
-  margin: 20px 0;
-
-  > div {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 5px;
-  
-    aling-items: center;
-  }
-`;
-
-export const ContainerCard = styled.div`
+export const ContainerRepositories = styled.div`
   grid-column: 2 / 3;
 `;
+
+export const ContentActions = styled.div`
+  display: flex;
+  aling-items: center;
+  max-width: 100%;
+  height: 40px;
+  border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+  margin-bottom: 5px;
+`;
+
+export const ContentTitle = styled.h2``;
+
+export const ContainerCard = styled.div``;

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Card } from './styled';
+import { Card, Link } from './styled';
 
 interface PropsCardRepository {
   repository?: any;
 }
 
-const CardRepository: React.FC<PropsCardRepository> = (props) => (
+const CardRepository: React.FC<PropsCardRepository> = ({ repository }) => (
   <Card>
-    {props?.repository?.name}
+    <Link href={repository?.html_url} target="blank">{repository?.name}</Link>
   </Card>
 );
 
