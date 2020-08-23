@@ -7,18 +7,12 @@ import {
 } from '../../services/GitHub/repositories';
 
 import CardRepository from '../../components/CardRepository';
-
-import { iconLoader } from '../../utils/iconLoader';
+import UserInformation from '../../components/UserInformation';
 
 import {
   Container,
   ContainerInformationUser,
-  ContainerAvatar,
-  ImgAvatar,
-  ContainerInformation,
-  ContentActives,
   ContainerCard,
-  ContentDescription,
 } from './styled';
 
 const ListRepositoriesByUser = () => {
@@ -43,39 +37,15 @@ const ListRepositoriesByUser = () => {
   return (
     <Container>
       <ContainerInformationUser>
-        <ContainerAvatar>
-          {userInfo?.avatar_url && <ImgAvatar src={userInfo?.avatar_url} alt="Avatar user" />}
-        </ContainerAvatar>
-        <ContainerInformation>
-          <h1>{userInfo?.name}</h1>
-          <ContentDescription>{userInfo?.bio}</ContentDescription>
-
-          <ContentActives>
-            <div>
-              {iconLoader({ iconName: 'peoples', fontSize: 18 })}
-              {userInfo?.followers}
-              {' '}
-              followers
-            </div>
-            <div>
-              {'        · '}
-              {userInfo?.following}
-              {' '}
-              following
-            </div>
-          </ContentActives>
-        </ContainerInformation>
+        {userInfo && <UserInformation userInfo={userInfo} />}
       </ContainerInformationUser>
 
       <ContainerCard>
         {
-        repositories.map((repository) => (
-          <CardRepository
-            key={repository.id}
-            repository={repository}
-          />
-        ))
-      }
+          repositories.map((repository) => (
+            <CardRepository key={repository.id} repository={repository} />
+          ))
+        }
       </ContainerCard>
     </Container>
   );

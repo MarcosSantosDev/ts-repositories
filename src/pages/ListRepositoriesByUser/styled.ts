@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 400px auto;
+  grid-template-columns: 350px auto;
   grid-template-rows: auto;
   grid-row-gap: 20px;
   margin-top: 40px;
@@ -19,7 +19,7 @@ export const ContainerAvatar = styled.div`
 
 export const ImgAvatar = styled.img`
   border-radius: 50%;
-  height: 320px;
+  height: 280px;
 `;
 
 export const ContainerInformation = styled.div`
