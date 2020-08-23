@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconType } from 'react-icons/lib';
-import { AiFillGithub } from 'react-icons/ai';
-import { BsPeopleCircle } from 'react-icons/bs';
+import { AiFillGithub, AiOutlineStar } from 'react-icons/ai';
+import { BsFillPeopleFill } from 'react-icons/bs';
 
 interface IconsType {
   name: string,
@@ -15,7 +15,8 @@ interface Props {
 
 const icons: IconsType[] = [
   { name: 'github', icon: AiFillGithub },
-  { name: 'profile', icon: BsPeopleCircle },
+  { name: 'peoples', icon: BsFillPeopleFill },
+  { name: 'star', icon: AiOutlineStar },
 ];
 
 export const iconLoader: React.FC<Props> = ({ iconName, fontSize }): JSX.Element => {
