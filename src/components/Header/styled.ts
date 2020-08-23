@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 60px;
-  background: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.secondary};
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 30px;
+  height: 50px;
+  background: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.secondary};
+  padding: 0 20px;
 `;
 
 export const ContentHeaderActions = styled.div`

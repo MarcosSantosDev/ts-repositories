@@ -5,3 +5,9 @@ export const listRepositoriesByUserName = async (userName: string) => {
 
   return response;
 };
+
+export const getUser = async (userName: string) => {
+  const response = await api.get(`/users/${userName}`);
+
+  return response;
+};

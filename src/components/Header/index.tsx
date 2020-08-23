@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
   return (
     <Container>
       <ContentTitle>
-        <IconTitle>{iconLoader({ iconName: 'github', fontSize: 25 })}</IconTitle>
+        <IconTitle>{iconLoader({ iconName: 'github', fontSize: 35 })}</IconTitle>
         <Title>GitHub API - Repositories</Title>
       </ContentTitle>
       <ContentHeaderActions>
@@ -37,11 +37,10 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
             height={18}
             width={40}
             handleDiameter={20}
-            offColor={shade(0.15, colors.primary)}
+            offColor={shade(0.15, colors.secondary)}
             onColor={colors.secondary}
           />
         </HeaderAction>
-        <HeaderAction>{iconLoader({ iconName: 'profile', fontSize: 25 })}</HeaderAction>
       </ContentHeaderActions>
     </Container>
   );

@@ -1,18 +1,14 @@
 import React from 'react';
 
-import {
-  Card,
-} from './styled';
+import { Card } from './styled';
 
 interface PropsCardRepository {
-  children: any
+  repository?: any;
 }
 
-const CardRepository = ({ children }:PropsCardRepository) => (
+const CardRepository: React.FC<PropsCardRepository> = (props) => (
   <Card>
-    <div>ICON</div>
-    {' '}
-    {children}
+    {props?.repository?.name}
   </Card>
 );
 
