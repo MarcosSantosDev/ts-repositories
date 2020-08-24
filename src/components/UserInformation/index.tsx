@@ -30,7 +30,7 @@ const UserInformation: React.FC<PropsUserInformation> = ({ userInfo }) => (
 
       <ContentActives>
         <Active>
-          {iconLoader({ iconName: 'peoples', fontSize: 18 })}
+          {iconLoader({ iconName: 'organization', fontSize: 18 })}
           {`${userInfo?.followers} followers`}
         </Active>
         <Active>·</Active>

@@ -25,6 +25,17 @@ export const ContentActions = styled.div`
   margin-bottom: 5px;
 `;
 
-export const ContentTitle = styled.h2``;
+export const ContentTitle = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 
-export const ContainerCard = styled.div``;
+  > svg {
+    margin-right: 5px;
+  }
+`;
+
+export const ContainerCard = styled.div`
+  display: grid;
+  grid-row-gap: 10px;
+`;
