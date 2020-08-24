@@ -7,7 +7,7 @@ export const ContainerAvatar = styled.div`
 
 export const ImgAvatar = styled.img`
   border-radius: 50%;
-  height: 280px;
+  height: 276px;
 `;
 
 export const ContainerInformation = styled.div`
@@ -16,7 +16,15 @@ export const ContainerInformation = styled.div`
 
 export const ContentName = styled.h1`
   width: 100%;
-  margin: 10px auto;
+  margin-top: 10px;
+`;
+
+export const ContentLoginName = styled.h2`
+  width: 100%;
+  margin: 8px auto;
+  font-size: 20px;
+  font-weight: 300;
+  color: #666;
 `;
 
 export const ContentBiograph = styled.p`

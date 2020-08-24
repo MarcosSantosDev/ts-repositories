@@ -6,6 +6,7 @@ import {
   ContainerAvatar,
   ContainerInformation,
   ContentName,
+  ContentLoginName,
   ContentBiograph,
   ContentActives,
   Active,
@@ -26,6 +27,7 @@ const UserInformation: React.FC<PropsUserInformation> = ({ userInfo }) => (
     </ContainerAvatar>
     <ContainerInformation>
       <ContentName>{userInfo?.name}</ContentName>
+      <ContentLoginName>{userInfo?.login}</ContentLoginName>
       <ContentBiograph>{userInfo?.bio}</ContentBiograph>
 
       <ContentActives>

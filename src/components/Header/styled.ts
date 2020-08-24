@@ -5,10 +5,10 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  height: 50px;
+  height: 53px;
   background: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.secondary};
-  padding: 0 20px;
+  padding: 0 16px;
 `;
 
 export const ContentHeaderActions = styled.div`
