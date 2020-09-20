@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 
 import {
@@ -11,27 +10,28 @@ import { iconLoader } from '../../utils/iconLoader';
 import CardRepository from '../../components/CardRepository';
 import UserInformation from '../../components/UserInformation';
 
+import { RepositoryProps, UserProps } from '../../types';
+
 import {
   Container,
   ContainerInformationUser,
   ContainerRepositories,
-  ContentActions,
   ContentTitle,
   ContainerCard,
 } from './styled';
 
 const ListRepositoriesByUser = () => {
-  const [repositories, setRepositories] = useState<Record<string, any>[]>([]);
-  const [userInfo, setUserInfo] = useState<Record<string, any>>();
+  const [repositories, setRepositories] = useState<RepositoryProps[]>([]);
+  const [userData, setUserData] = useState<UserProps>();
 
   const handleGetUser = async () => {
-    const { data } = await getUser('MarcosSantosDev');
-    setUserInfo(data);
+    const user = await getUser('MarcosSantosDev');
+    setUserData(user);
   };
 
   const handleRepositories = async () => {
-    const { data } = await listRepositoriesByUserName('MarcosSantosDev');
-    setRepositories(data);
+    const repositoriesList = await listRepositoriesByUserName('MarcosSantosDev');
+    setRepositories(repositoriesList);
   };
 
   useEffect(() => {
@@ -42,16 +42,14 @@ const ListRepositoriesByUser = () => {
   return (
     <Container>
       <ContainerInformationUser>
-        {userInfo && <UserInformation userInfo={userInfo} />}
+        {userData && <UserInformation userInfo={userData} />}
       </ContainerInformationUser>
 
       <ContainerRepositories>
-        <ContentActions>
-          <ContentTitle>
-            {iconLoader({ iconName: 'repository', fontSize: 20 })}
-            <h2>Personal Projects</h2>
-          </ContentTitle>
-        </ContentActions>
+        <ContentTitle>
+          {iconLoader('repository', 20)}
+          <h2>Repositories</h2>
+        </ContentTitle>
         <ContainerCard>
           {
             repositories

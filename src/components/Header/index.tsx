@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
   return (
     <Container>
       <ContentTitle>
-        <IconTitle>{iconLoader({ iconName: 'github', fontSize: 32 })}</IconTitle>
+        <IconTitle>{iconLoader('github', 32)}</IconTitle>
         <Title>GitHub API</Title>
       </ContentTitle>
       <ContentHeaderActions>

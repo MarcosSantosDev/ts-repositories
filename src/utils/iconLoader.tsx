@@ -11,30 +11,25 @@ import {
   GoOrganization,
 } from 'react-icons/go';
 
-interface IconsType {
+type Icon = {
   name: string,
-  icon: IconType
+  Icon: IconType
 }
 
-interface Props {
-  iconName: string;
-  fontSize?: string | number;
-}
-
-const icons: IconsType[] = [
-  { name: 'repository', icon: GoRepo },
-  { name: 'github', icon: GoMarkGithub },
-  { name: 'organization', icon: GoOrganization },
-  { name: 'star', icon: AiOutlineStar },
-  { name: 'link', icon: AiOutlineLink },
-  { name: 'location', icon: GoLocation },
-  { name: 'officeBuilding', icon: FaRegBuilding },
-  { name: 'forked', icon: GoRepoForked },
-  { name: 'law', icon: GoLaw },
+const icons: Icon[] = [
+  { name: 'repository', Icon: GoRepo },
+  { name: 'github', Icon: GoMarkGithub },
+  { name: 'organization', Icon: GoOrganization },
+  { name: 'star', Icon: AiOutlineStar },
+  { name: 'link', Icon: AiOutlineLink },
+  { name: 'location', Icon: GoLocation },
+  { name: 'officeBuilding', Icon: FaRegBuilding },
+  { name: 'forked', Icon: GoRepoForked },
+  { name: 'law', Icon: GoLaw },
 ];
 
-export const iconLoader: React.FC<Props> = ({ iconName, fontSize }): JSX.Element => {
-  const [IconElement] = icons.filter(({ name }) => (name === iconName)).map(({ icon }) => (icon));
+export const iconLoader = (iconName: string, fontSize?: string | number): JSX.Element => {
+  const IconElement = icons.find((icon) => (icon.name === iconName));
 
-  return IconElement ? <IconElement color="#6a737d" fontSize={fontSize} /> : <></>;
+  return IconElement ? <IconElement.Icon color="#6a737d" fontSize={fontSize} /> : <></>;
 };

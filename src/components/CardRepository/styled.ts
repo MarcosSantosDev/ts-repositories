@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
+type StyledProps = {
+  bgColor: string;
+}
+
 export const Card = styled.div`
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
 
-  width: 100%;
-  min-height: 80px;
   background: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.text};
   border-bottom: 1px solid  ${(props) => props.theme.colors.text};
@@ -49,4 +52,12 @@ export const FeatureDetails = styled.div`
   margin-right: 15px;
 `;
 
-export const ContentRepository2 = styled.div``;
+export const CircleColor = styled.span<StyledProps>`
+  display: inline-block;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background-color: ${(props) => props.bgColor};
+  top: 1px;
+  border-radius: 50%;
+`;
