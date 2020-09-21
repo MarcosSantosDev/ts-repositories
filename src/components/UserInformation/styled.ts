@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 
+export const Main = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+      "image"
+      "informations";
+  grid-row-gap: 10px;
+`;
+
 export const ContainerAvatar = styled.div`
+  grid-area: image;
   display: flex;
   justify-content: center;
 `;
@@ -11,54 +21,48 @@ export const ImgAvatar = styled.img`
 `;
 
 export const ContainerInformation = styled.div`
-  padding: 10px 30px;
+  grid-area: informations;
+  margin: 0 30px;
+
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas: 
+      "name"
+      "loginName"
+      "biograph"
+      "actives";
+  grid-row-gap: 8px
 `;
 
 export const ContentName = styled.h1`
-  width: 100%;
-  margin-top: 10px;
+  grid-area: name;
 `;
 
 export const ContentLoginName = styled.h2`
-  width: 100%;
-  margin: 8px auto;
+  grid-area: loginName;
   font-size: 20px;
   font-weight: 300;
   color: #666;
 `;
 
 export const ContentBiograph = styled.p`
-  width: 100%;
+  grid-area: biograph;
   font-size: 16px;
 `;
 
 export const ContentActives = styled.div`
-  display: flex;
-  margin: 20px 0;
-`;
-
-export const Active = styled.div`
+  grid-area: actives;
   display: flex;
   aling-items: center;
-
-  margin-right: 5px;
-
-  > svg {
-    margin: 0 5px;
-  }
 `;
 
-export const ListBody = styled.div``;
-
-export const ListItem = styled.div`
+export const Active = styled.span`
   display: flex;
-  aling-items: center;
-
-  margin: 10px 0;
-  list-style: none;
+  margin: 5px;
 
   > svg {
-    margin: 0 5px;
+    margin-right: 5px;
+    margin-left: 0;
   }
 `;
 

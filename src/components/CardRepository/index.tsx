@@ -1,75 +1,94 @@
-import React from 'react';
+import React, { memo } from 'react';
 import moment from 'moment';
 
 import { iconLoader } from '../../utils/iconLoader';
 
+import { languages_colors } from '../../helpers/colors.json';
+
+import { RepositoryProps } from '../../types';
+
 import {
   Card,
   Link,
-  WrapperRepository,
   RepositoryName,
   RepositoryDescription,
+  CircleColor,
   WrapperFeature,
   FeatureDetails,
+  Feature,
 } from './styled';
 
-interface PropsCardRepository {
-  repository?: any;
+export type PropsCardRepository = {
+  repository: RepositoryProps;
 }
 
-const CardRepository: React.FC<PropsCardRepository> = ({ repository }) => (
-  <Card>
-    <WrapperRepository>
-      <RepositoryName>
-        <Link href={repository?.html_url} target="blank">{repository?.name}</Link>
-      </RepositoryName>
-      <RepositoryDescription>
-        {repository?.description}
-      </RepositoryDescription>
-    </WrapperRepository>
-    <WrapperFeature>
-      <FeatureDetails>
-        <span
-          style={{
-            background: 'yellow',
-            position: 'relative',
-            top: '1px',
-            display: 'inline-block',
-            width: '12px',
-            height: '12px',
-            borderRadius: '50%',
-          }}
-        />
-        <span>{repository?.language}</span>
-      </FeatureDetails>
-      <FeatureDetails>
-        <span>{iconLoader({ iconName: 'star', fontSize: 16 })}</span>
-        <span>{repository?.stargazers_count}</span>
-      </FeatureDetails>
-      <FeatureDetails>
-        <span>{iconLoader({ iconName: 'forked', fontSize: 16 })}</span>
-        <span>{repository?.forks}</span>
-      </FeatureDetails>
-      {
-        repository?.license
-        && (
-          <FeatureDetails>
-            <span>{iconLoader({ iconName: 'law', fontSize: 16 })}</span>
-            <span>{repository?.license?.name}</span>
-          </FeatureDetails>
-        )
-      }
-      {
-        repository?.updated_at
-        && (
-          <FeatureDetails>
-            <span>Updated on </span>
-            <span>{moment(repository?.updated_at).format('D MMM YYYY')}</span>
-          </FeatureDetails>
-        )
-      }
-    </WrapperFeature>
-  </Card>
-);
+export type languageColorProps = {
+  [key: string]: string | null
+}
 
-export default CardRepository;
+const CardRepository = ({ repository }: PropsCardRepository) => {
+  const handleGetColor = (color: any) => {
+    const languageColor: languageColorProps = languages_colors;
+
+    return languageColor[color] || '#000';
+  };
+
+  return (
+    <Card>
+      <RepositoryName>
+        {iconLoader('repository', 16)}
+        {' '}
+        <Link href={repository.html_url} target="blank">
+          {repository.name}
+        </Link>
+      </RepositoryName>
+
+      <RepositoryDescription>
+        {repository.description}
+      </RepositoryDescription>
+
+      <WrapperFeature>
+        <FeatureDetails>
+          <CircleColor bgColor={handleGetColor(repository.language)} />
+          <Feature>{ repository.language || 'Static' }</Feature>
+        </FeatureDetails>
+        <FeatureDetails>
+          <Feature>{iconLoader('star', 16)}</Feature>
+          <Feature>{repository.stargazers_count}</Feature>
+        </FeatureDetails>
+        <FeatureDetails>
+          <Feature>{iconLoader('forked', 16)}</Feature>
+          <Feature>{repository.forks}</Feature>
+        </FeatureDetails>
+        {
+          repository.license
+          && (
+            <FeatureDetails>
+              <Feature>{iconLoader('law', 16)}</Feature>
+              <Feature>{repository.license?.name}</Feature>
+            </FeatureDetails>
+          )
+        }
+        {
+          repository.updated_at
+          && (
+            <FeatureDetails style={{ cursor: 'pointer' }}>
+              <Feature
+                title={moment(repository.updated_at).format('D MMM YYYY')}
+              >
+                Updated at
+              </Feature>
+              <Feature
+                title={moment(repository.updated_at).format('D MMM YYYY')}
+              >
+                {iconLoader('calendar', 16)}
+              </Feature>
+            </FeatureDetails>
+          )
+        }
+      </WrapperFeature>
+    </Card>
+  );
+};
+
+export default memo(CardRepository);

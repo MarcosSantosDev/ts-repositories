@@ -1,20 +1,12 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
-  display: grid;
-  grid-template-columns: auto;
-
-  width: 100%;
-  min-height: 80px;
-  background: ${(props) => props.theme.colors.background};
-  color: ${(props) => props.theme.colors.text};
-  border-bottom: 1px solid  ${(props) => props.theme.colors.text};
-  padding: 18px 0;
-`;
+type StyledProps = {
+  bgColor: string;
+}
 
 export const Link = styled.a`
   max-width: 280px;
-  color: ${(props) => props.theme.colors.text};
+  color: #0366d6;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -26,19 +18,46 @@ export const Link = styled.a`
   }
 `;
 
-export const WrapperRepository = styled.div``;
+export const Card = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+      "repository"
+      "description"
+      "actives";
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 5px;
+  min-height: 120px;
+  background: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.text};
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+`;
 
-export const RepositoryName = styled.h2``;
+export const RepositoryName = styled.h3`
+  grid-area: repository;
+  align-self: end;
+  padding: 0 5px;
 
-export const RepositoryDescription = styled.div`
-  padding: 10px 0;
+  > svg {
+    margin: 0 5px;
+  }
+`;
+
+export const RepositoryDescription = styled.p`
+  grid-area: description;
+  font-size: 12px;
+  align-self: center;
+  padding: 0 10px;
 `;
 
 export const WrapperFeature = styled.div`
+  grid-area: actives;
+
   display: flex;
   aling-items: center;
   width: 100%;
-  margin-top: 5px;
+  padding: 0 10px;
 `;
 
 export const FeatureDetails = styled.div`
@@ -49,4 +68,14 @@ export const FeatureDetails = styled.div`
   margin-right: 15px;
 `;
 
-export const ContentRepository2 = styled.div``;
+export const CircleColor = styled.span<StyledProps>`
+  display: inline-block;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background-color: ${(props) => props.bgColor};
+  top: 1px;
+  border-radius: 50%;
+`;
+
+export const Feature = styled.span``;
