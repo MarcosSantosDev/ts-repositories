@@ -31,7 +31,9 @@ const ListRepositoriesByUser = () => {
 
   const handleRepositories = async () => {
     const repositoriesList = await listRepositoriesByUserName('MarcosSantosDev');
-    setRepositories(repositoriesList);
+    const repositoriesPersonal = repositoriesList.filter((repository) => repository.fork === false);
+
+    setRepositories(repositoriesPersonal);
   };
 
   useEffect(() => {
@@ -53,7 +55,6 @@ const ListRepositoriesByUser = () => {
         <ContainerCard>
           {
             repositories
-              .filter((repository) => repository.fork === false)
               .map((repository) => (
                 <CardRepository key={repository.id} repository={repository} />
               ))

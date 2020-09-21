@@ -1,13 +1,16 @@
 import api from './api';
+import { RepositoryProps, UserProps } from '../../types';
 
 export const listRepositoriesByUserName = async (userName: string) => {
   const response = await api.get(`/users/${userName}/repos`);
 
-  return response.data;
+  const repositories: RepositoryProps[] = response.data;
+
+  return repositories;
 };
 
 export const getUser = async (userName: string) => {
   const response = await api.get(`/users/${userName}`);
-
-  return response.data;
+  const user: UserProps = response.data;
+  return user;
 };

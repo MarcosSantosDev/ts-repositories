@@ -9,6 +9,8 @@ import {
   GoLaw,
   GoMarkGithub,
   GoOrganization,
+  GoClock,
+  GoBook,
 } from 'react-icons/go';
 
 type Icon = {
@@ -17,6 +19,8 @@ type Icon = {
 }
 
 const icons: Icon[] = [
+  { name: 'clock', Icon: GoClock },
+  { name: 'book', Icon: GoBook },
   { name: 'repository', Icon: GoRepo },
   { name: 'github', Icon: GoMarkGithub },
   { name: 'organization', Icon: GoOrganization },

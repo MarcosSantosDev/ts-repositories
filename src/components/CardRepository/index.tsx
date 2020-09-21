@@ -10,12 +10,12 @@ import { RepositoryProps } from '../../types';
 import {
   Card,
   Link,
-  WrapperRepository,
   RepositoryName,
   RepositoryDescription,
+  CircleColor,
   WrapperFeature,
   FeatureDetails,
-  CircleColor,
+  Feature,
 } from './styled';
 
 export type PropsCardRepository = {
@@ -35,47 +35,52 @@ const CardRepository = ({ repository }: PropsCardRepository) => {
 
   return (
     <Card>
-      <WrapperRepository>
+      <RepositoryName>
+        <Link href={repository.html_url} target="blank">
+          {repository.name}
+        </Link>
+      </RepositoryName>
 
-        <RepositoryName>
-          <Link href={repository.html_url} target="blank">
-            {repository.name}
-          </Link>
-        </RepositoryName>
+      <RepositoryDescription>
+        {repository.description}
+      </RepositoryDescription>
 
-        <RepositoryDescription>
-          {repository.description}
-        </RepositoryDescription>
-
-      </WrapperRepository>
       <WrapperFeature>
         <FeatureDetails>
           <CircleColor bgColor={handleGetColor(repository.language)} />
-          <span>{ repository.language || 'Static' }</span>
+          <Feature>{ repository.language || 'Static' }</Feature>
         </FeatureDetails>
         <FeatureDetails>
-          <span>{iconLoader('star', 16)}</span>
-          <span>{repository.stargazers_count}</span>
+          <Feature>{iconLoader('star', 16)}</Feature>
+          <Feature>{repository.stargazers_count}</Feature>
         </FeatureDetails>
         <FeatureDetails>
-          <span>{iconLoader('forked', 16)}</span>
-          <span>{repository.forks}</span>
+          <Feature>{iconLoader('forked', 16)}</Feature>
+          <Feature>{repository.forks}</Feature>
         </FeatureDetails>
         {
           repository.license
           && (
             <FeatureDetails>
-              <span>{iconLoader('law', 16)}</span>
-              <span>{repository.license?.name}</span>
+              <Feature>{iconLoader('law', 16)}</Feature>
+              <Feature>{repository.license?.name}</Feature>
             </FeatureDetails>
           )
         }
         {
           repository.updated_at
           && (
-            <FeatureDetails>
-              <span>Updated on </span>
-              <span>{moment(repository.updated_at).format('D MMM YYYY')}</span>
+            <FeatureDetails style={{ cursor: 'pointer' }}>
+              <Feature
+                title={moment(repository.updated_at).format('D MMM YYYY')}
+              >
+                Updated at
+              </Feature>
+              <Feature
+                title={moment(repository.updated_at).format('D MMM YYYY')}
+              >
+                {iconLoader('clock', 16)}
+              </Feature>
             </FeatureDetails>
           )
         }

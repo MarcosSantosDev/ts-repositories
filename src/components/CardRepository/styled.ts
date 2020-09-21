@@ -4,17 +4,6 @@ type StyledProps = {
   bgColor: string;
 }
 
-export const Card = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-
-  background: ${(props) => props.theme.colors.background};
-  color: ${(props) => props.theme.colors.text};
-  border-bottom: 1px solid  ${(props) => props.theme.colors.text};
-  padding: 18px 0;
-`;
-
 export const Link = styled.a`
   max-width: 280px;
   color: ${(props) => props.theme.colors.text};
@@ -29,19 +18,42 @@ export const Link = styled.a`
   }
 `;
 
-export const WrapperRepository = styled.div``;
+export const Card = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+      "repository"
+      "description"
+      "actives";
+  grid-template-rows: 40px auto 40px;
+  grid-row-gap: 10px;
+  align-items: center;
 
-export const RepositoryName = styled.h2``;
+  background: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.text};
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+`;
+
+export const RepositoryName = styled.h2`
+  grid-area: repository;
+  align-self: center;
+  padding: 0 10px;
+`;
 
 export const RepositoryDescription = styled.div`
-  padding: 10px 0;
+  grid-area: description;
+  align-self: center;
+  padding: 0 10px;
 `;
 
 export const WrapperFeature = styled.div`
+  grid-area: actives;
+
   display: flex;
   aling-items: center;
   width: 100%;
-  margin-top: 5px;
+  padding: 0 10px;
 `;
 
 export const FeatureDetails = styled.div`
@@ -61,3 +73,5 @@ export const CircleColor = styled.span<StyledProps>`
   top: 1px;
   border-radius: 50%;
 `;
+
+export const Feature = styled.span``;
