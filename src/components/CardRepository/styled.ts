@@ -6,7 +6,7 @@ type StyledProps = {
 
 export const Link = styled.a`
   max-width: 280px;
-  color: ${(props) => props.theme.colors.text};
+  color: #0366d6;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25,24 +25,28 @@ export const Card = styled.div`
       "repository"
       "description"
       "actives";
-  grid-template-rows: 40px auto 40px;
-  grid-row-gap: 10px;
-  align-items: center;
-
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 5px;
+  min-height: 120px;
   background: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.text};
   border: 1px solid #e1e4e8;
   border-radius: 6px;
 `;
 
-export const RepositoryName = styled.h2`
+export const RepositoryName = styled.h3`
   grid-area: repository;
-  align-self: center;
-  padding: 0 10px;
+  align-self: end;
+  padding: 0 5px;
+
+  > svg {
+    margin: 0 5px;
+  }
 `;
 
-export const RepositoryDescription = styled.div`
+export const RepositoryDescription = styled.p`
   grid-area: description;
+  font-size: 12px;
   align-self: center;
   padding: 0 10px;
 `;

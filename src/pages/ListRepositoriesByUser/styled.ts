@@ -23,6 +23,10 @@ export const ContentTitle = styled.div`
   grid-template-rows: 50px;
   align-items: center;
   border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+
+  > h3 {
+    font-size: 16px;
+  }
 `;
 
 export const ContainerCard = styled.div`

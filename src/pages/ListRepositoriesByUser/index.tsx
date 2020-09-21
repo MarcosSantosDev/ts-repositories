@@ -49,8 +49,8 @@ const ListRepositoriesByUser = () => {
 
       <ContainerRepositories>
         <ContentTitle>
-          {iconLoader('repository', 20)}
-          <h2>Repositories</h2>
+          {iconLoader('repository', 16)}
+          <h3>Repositories</h3>
         </ContentTitle>
         <ContainerCard>
           {

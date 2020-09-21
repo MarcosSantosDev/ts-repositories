@@ -36,6 +36,8 @@ const CardRepository = ({ repository }: PropsCardRepository) => {
   return (
     <Card>
       <RepositoryName>
+        {iconLoader('repository', 16)}
+        {' '}
         <Link href={repository.html_url} target="blank">
           {repository.name}
         </Link>
@@ -79,7 +81,7 @@ const CardRepository = ({ repository }: PropsCardRepository) => {
               <Feature
                 title={moment(repository.updated_at).format('D MMM YYYY')}
               >
-                {iconLoader('clock', 16)}
+                {iconLoader('calendar', 16)}
               </Feature>
             </FeatureDetails>
           )

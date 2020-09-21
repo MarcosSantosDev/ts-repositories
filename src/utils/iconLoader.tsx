@@ -9,7 +9,7 @@ import {
   GoLaw,
   GoMarkGithub,
   GoOrganization,
-  GoClock,
+  GoCalendar,
   GoBook,
 } from 'react-icons/go';
 
@@ -19,7 +19,7 @@ type Icon = {
 }
 
 const icons: Icon[] = [
-  { name: 'clock', Icon: GoClock },
+  { name: 'calendar', Icon: GoCalendar },
   { name: 'book', Icon: GoBook },
   { name: 'repository', Icon: GoRepo },
   { name: 'github', Icon: GoMarkGithub },
