@@ -10,6 +10,7 @@ import {
   NavbarLogo,
   NavbarActions,
   IconTitle,
+  AlingCenter,
 } from './styled';
 
 interface NavbarProps {
@@ -29,10 +30,18 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
         <Switch
           onChange={toggleTheme}
           checked={title === 'dark'}
-          uncheckedIcon={false}
-          checkedIcon={false}
-          height={18}
-          width={40}
+          uncheckedIcon={(
+            <AlingCenter>
+              {iconLoader('sun', 14)}
+            </AlingCenter>
+          )}
+          checkedIcon={(
+            <AlingCenter>
+              {iconLoader('moon', 14)}
+            </AlingCenter>
+          )}
+          height={20}
+          width={48}
           handleDiameter={20}
           offColor={shade(0.15, colors.secondary)}
           onColor={colors.secondary}

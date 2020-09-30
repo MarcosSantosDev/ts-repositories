@@ -12,6 +12,7 @@ import {
   GoCalendar,
   GoBook,
 } from 'react-icons/go';
+import { BsMoon, BsSun } from 'react-icons/bs';
 
 type Icon = {
   name: string,
@@ -30,6 +31,8 @@ const icons: Icon[] = [
   { name: 'officeBuilding', Icon: FaRegBuilding },
   { name: 'forked', Icon: GoRepoForked },
   { name: 'law', Icon: GoLaw },
+  { name: 'moon', Icon: BsMoon },
+  { name: 'sun', Icon: BsSun },
 ];
 
 export const iconLoader = (iconName: string, fontSize?: string | number): JSX.Element => {

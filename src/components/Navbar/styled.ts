@@ -30,3 +30,10 @@ export const IconTitle = styled.div`
     fill: ${(props) => props.theme.colors.secondary};
   }
 `;
+
+export const AlingCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
