@@ -6,7 +6,7 @@ type StyledProps = {
 
 export const Link = styled.a`
   max-width: 280px;
-  color: #0366d6;
+  color: #3374b9;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

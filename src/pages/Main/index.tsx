@@ -8,8 +8,8 @@ import GlobalStyle from '../../styles/global';
 
 import usePersistedState from '../../hooks/usePersistedState';
 
-import Header from '../../components/Header';
-import ListRepositoriesByUser from '../ListRepositoriesByUser';
+import Navbar from '../../components/Navbar';
+import Repositories from '../Repositories';
 
 import { Container } from './styled';
 
@@ -25,8 +25,8 @@ const Main = () => {
       <ThemeProvider theme={theme}>
         <Container>
           <GlobalStyle />
-          <Header toggleTheme={toggleTheme} />
-          <ListRepositoriesByUser />
+          <Navbar toggleTheme={toggleTheme} />
+          <Repositories />
         </Container>
       </ThemeProvider>
     </React.StrictMode>

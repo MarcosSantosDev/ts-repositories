@@ -16,11 +16,12 @@ import {
   Container,
   ContainerInformationUser,
   ContainerRepositories,
+  SubMenu,
   ContentTitle,
   ContainerCard,
 } from './styled';
 
-const ListRepositoriesByUser = () => {
+const Repositories = () => {
   const [repositories, setRepositories] = useState<RepositoryProps[]>([]);
   const [userData, setUserData] = useState<UserProps>();
 
@@ -32,7 +33,7 @@ const ListRepositoriesByUser = () => {
   const handleRepositories = async () => {
     const repositoriesList = await listRepositoriesByUserName('MarcosSantosDev');
     const repositoriesPersonal = repositoriesList.filter((repository) => repository.fork === false);
-
+    repositoriesPersonal.length = 6;
     setRepositories(repositoriesPersonal);
   };
 
@@ -43,15 +44,18 @@ const ListRepositoriesByUser = () => {
 
   return (
     <Container>
+      <SubMenu>
+        <ContentTitle>
+          {iconLoader('book', 18)}
+          <h3>Overview</h3>
+        </ContentTitle>
+      </SubMenu>
+
       <ContainerInformationUser>
         {userData && <UserInformation userInfo={userData} />}
       </ContainerInformationUser>
 
       <ContainerRepositories>
-        <ContentTitle>
-          {iconLoader('repository', 16)}
-          <h3>Repositories</h3>
-        </ContentTitle>
         <ContainerCard>
           {
             repositories
@@ -65,4 +69,4 @@ const ListRepositoriesByUser = () => {
   );
 };
 
-export default ListRepositoriesByUser;
+export default Repositories;

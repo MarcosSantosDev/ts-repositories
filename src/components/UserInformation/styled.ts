@@ -17,7 +17,9 @@ export const ContainerAvatar = styled.div`
 
 export const ImgAvatar = styled.img`
   border-radius: 50%;
-  height: 276px;
+  width: 260px;
+  height: auto;
+  background-size: cover;
 `;
 
 export const ContainerInformation = styled.div`

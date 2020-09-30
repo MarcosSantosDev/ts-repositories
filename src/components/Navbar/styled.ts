@@ -5,24 +5,13 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  height: 53px;
+  height: 60px;
   background: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.secondary};
-  padding: 0 16px;
+  padding: 0 30px;
 `;
 
-export const ContentHeaderActions = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const HeaderAction = styled.div`
-  margin: 0 5px;
-`;
-
-export const ContentTitle = styled.div`
+export const NavbarLogo = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: 10px;
@@ -30,10 +19,14 @@ export const ContentTitle = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.h3`
-
+export const NavbarActions = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const IconTitle = styled.div`
-
+  > svg {
+    fill: ${(props) => props.theme.colors.secondary};
+  }
 `;

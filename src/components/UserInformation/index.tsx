@@ -24,7 +24,10 @@ interface UserInformationProps {
 const UserInformation = ({ userInfo }: UserInformationProps) => (
   <Main>
     <ContainerAvatar>
-      <ImgAvatar src={userInfo.avatar_url} alt="Avatar user" />
+      <ImgAvatar
+        src={userInfo.avatar_url}
+        alt="Avatar user"
+      />
     </ContainerAvatar>
     <ContainerInformation>
       <ContentName>{userInfo.name}</ContentName>
@@ -32,27 +35,49 @@ const UserInformation = ({ userInfo }: UserInformationProps) => (
       <ContentBiograph>{userInfo.bio}</ContentBiograph>
 
       <ContentActives>
-        <Active>
-          {iconLoader('organization', 18)}
-          {`${userInfo.followers} followers`}
-        </Active>
-        <Active>·</Active>
-        <Active>
-          {`${userInfo.following} following`}
-        </Active>
+        {
+          userInfo.followers
+          && (
+            <>
+              <Active>
+                {iconLoader('organization', 18)}
+                {`${userInfo.followers} followers`}
+              </Active>
+              <Active>·</Active>
+            </>
+          )
+        }
+        {
+          userInfo.followers && (<Active>{`${userInfo.following} following`}</Active>)
+        }
       </ContentActives>
-      <Active>
-        {iconLoader('officeBuilding', 16)}
-        {userInfo.company}
-      </Active>
-      <Active>
-        {iconLoader('location', 16)}
-        {userInfo.location}
-      </Active>
-      <Active>
-        {iconLoader('link', 16)}
-        <Link href={userInfo.blog}>{userInfo.blog}</Link>
-      </Active>
+      {
+        userInfo.company
+        && (
+          <Active>
+            {iconLoader('officeBuilding', 16)}
+            {userInfo.company}
+          </Active>
+        )
+      }
+      {
+        userInfo.location
+        && (
+          <Active>
+            {iconLoader('location', 16)}
+            {userInfo.location}
+          </Active>
+        )
+      }
+      {
+        userInfo.blog
+        && (
+          <Active>
+            {iconLoader('link', 16)}
+            <Link href={userInfo.blog}>{userInfo.blog}</Link>
+          </Active>
+        )
+      }
     </ContainerInformation>
   </Main>
 );
