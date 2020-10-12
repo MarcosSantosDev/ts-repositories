@@ -50,7 +50,7 @@ const CardRepository = ({ repository }: PropsCardRepository) => {
       <WrapperFeature>
         <FeatureDetails>
           <CircleColor bgColor={handleGetColor(repository.language)} />
-          <Feature>{ repository.language || 'Static' }</Feature>
+          <Feature>{repository.language || 'Static'}</Feature>
         </FeatureDetails>
         <FeatureDetails>
           <Feature>{iconLoader('star', 16)}</Feature>
