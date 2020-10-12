@@ -5,7 +5,7 @@ import { iconLoader } from '../../utils/iconLoader';
 import { UserProps } from '../../types';
 
 import {
-  Main,
+  Container,
   ContainerAvatar,
   ContainerInformation,
   ContentName,
@@ -22,7 +22,7 @@ interface UserInformationProps {
 }
 
 const UserInformation = ({ userInfo }: UserInformationProps) => (
-  <Main>
+  <Container>
     <ContainerAvatar>
       <ImgAvatar
         src={userInfo.avatar_url}
@@ -79,7 +79,7 @@ const UserInformation = ({ userInfo }: UserInformationProps) => (
         )
       }
     </ContainerInformation>
-  </Main>
+  </Container>
 );
 
 export default UserInformation;

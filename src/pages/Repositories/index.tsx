@@ -52,7 +52,9 @@ const Repositories = () => {
       </SubMenu>
 
       <ContainerInformationUser>
-        {userData && <UserInformation userInfo={userData} />}
+        {
+          userData && <UserInformation userInfo={userData} />
+        }
       </ContainerInformationUser>
 
       <ContainerRepositories>
