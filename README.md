@@ -1,11 +1,14 @@
 # TS repositories
 <p>
-<img src="https://img.shields.io/github/license/MarcosSantosDev/ts-repositories" />
-<img src="https://img.shields.io/github/contributors/MarcosSantosDev/ts-repositories" />
+  <img src="https://img.shields.io/github/license/MarcosSantosDev/ts-repositories" />
+  <img src="https://img.shields.io/github/contributors/MarcosSantosDev/ts-repositories" />
 </p>
+
 #### This is an application that lists a user's repositories, with a choice between GitHub or GitLab providers.
+
 Data consumption APIs:
 - [GitHub API](https://developer.github.com/v3/)
+
 ![Screenshot](https://user-images.githubusercontent.com/26147340/95765529-6a186000-0c88-11eb-8683-98fb493a2aef.png)
 
 - [GitLab API](https://docs.gitlab.com/ee/api/)
