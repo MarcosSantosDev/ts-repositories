@@ -18,7 +18,7 @@ export const Link = styled.a`
   }
 `;
 
-export const Card = styled.div`
+export const Card = styled.article`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:

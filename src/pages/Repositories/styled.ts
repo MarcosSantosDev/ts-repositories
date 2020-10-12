@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   grid-area: content;
   display: grid;
   grid-template-areas: "actions actions" "userInformations repositories";
@@ -9,7 +9,7 @@ export const Container = styled.div`
   grid-row-gap: 40px;
 `;
 
-export const SubMenu = styled.div`
+export const SubMenu = styled.header`
   grid-area: actions;
   display: grid;
   grid-template-columns: 350px 1fr;
@@ -18,12 +18,12 @@ export const SubMenu = styled.div`
   border-bottom: 1px solid #e1e4e8;
 `;
 
-export const ContainerInformationUser = styled.section`
+export const ContainerInformationUser = styled.div`
   grid-area: userInformations;
   margin-top: -80px;
 `;
 
-export const ContainerRepositories = styled.section`
+export const ContainerRepositories = styled.aside`
   grid-area: repositories;
 `;
 
@@ -31,11 +31,10 @@ export const ContentTitle = styled.p`
   grid-column: 2 / 3;
   display: flex;
   align-items: flex-end;
-  padding: 10px;
-
+  padding-bottom: 10px;
   width: min-content;
+  min-width: 120px;
   border-bottom: 2px solid #f9826c;
-  margin-bottom: -1px;
   font-weight: 600;
 
   > h3 {
@@ -46,7 +45,7 @@ export const ContentTitle = styled.p`
   }
 `;
 
-export const ContainerCard = styled.div`
+export const ContainerCard = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Main = styled.div`
+export const Container = styled.header`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -9,20 +9,7 @@ export const Main = styled.div`
   grid-row-gap: 10px;
 `;
 
-export const ContainerAvatar = styled.div`
-  grid-area: image;
-  display: flex;
-  justify-content: center;
-`;
-
-export const ImgAvatar = styled.img`
-  border-radius: 50%;
-  width: 260px;
-  height: auto;
-  background-size: cover;
-`;
-
-export const ContainerInformation = styled.div`
+export const ContainerInformation = styled.article`
   grid-area: informations;
   margin: 0 30px;
 
@@ -36,8 +23,22 @@ export const ContainerInformation = styled.div`
   grid-row-gap: 8px
 `;
 
+export const ContainerAvatar = styled.header`
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+`;
+
+export const ImgAvatar = styled.img`
+  border-radius: 50%;
+  width: 260px;
+  height: auto;
+  background-size: cover;
+`;
+
 export const ContentName = styled.h1`
   grid-area: name;
+  font-size: 26px;
 `;
 
 export const ContentLoginName = styled.h2`
