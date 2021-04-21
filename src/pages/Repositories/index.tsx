@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { iconLoader } from '../../utils/iconLoader';
 
@@ -18,54 +19,93 @@ import {
   ContainerCard,
 } from './styled';
 
-interface StateProps {}
+interface ProfileProps {
+  user: UserProps | null;
+  repositories: never[];
+}
 
 interface RepositoriesProps {
   getAllRepositories: Function;
   getUser: Function;
-  repositories: any[];
-  user: UserProps;
+  user: {
+    data: UserProps | null;
+    isFetching: boolean;
+    error: null;
+  };
+  repositories: {
+    data: never[];
+    isFetching: boolean;
+    error: null;
+  }
 }
 
-class Repositories extends React.Component<RepositoriesProps, StateProps> {
-  componentDidMount() {
-    const { getAllRepositories, getUser } = this.props;
-    const user = 'MarcosSantosDev';
+const Repositories = ({
+  getAllRepositories, getUser, user, repositories,
+}: RepositoriesProps) => {
+  const [profile, setProfile] = useState<ProfileProps>({
+    user: null,
+    repositories: [],
+  });
+  const { username } = useParams<{ username: string }>();
+  const history = useHistory();
 
-    getAllRepositories(user);
-    getUser(user);
-  }
+  useEffect(() => {
+    if (username) {
+      getAllRepositories(username);
+      getUser(username);
+    }
+  }, [getAllRepositories, getUser, username]);
 
-  render() {
-    return (
-      <Container>
-        <SubMenu>
-          <ContentTitle>
-            {iconLoader('book', 18)}
-            Overview
-          </ContentTitle>
-        </SubMenu>
+  useEffect(() => {
+    if (user.data) {
+      setProfile((profileCurrent) => ({
+        ...profileCurrent,
+        user: user.data,
+      }));
+    } else if (user.error) {
+      history.push('/404');
+    }
+  }, [history, user.data, user.error]);
 
-        <ContainerInformationUser>
+  useEffect(() => {
+    if (repositories.data) {
+      setProfile((profileCurrent) => ({
+        ...profileCurrent,
+        repositories: repositories.data,
+      }));
+    } else if (repositories.error) {
+      history.push('/404');
+    }
+  }, [history, repositories.data, repositories.error]);
+
+  return (
+    <Container>
+      <SubMenu>
+        <ContentTitle>
+          {iconLoader('book', 18)}
+          Overview
+        </ContentTitle>
+      </SubMenu>
+
+      <ContainerInformationUser>
+        {
+          profile.user && <UserInformation userInfo={profile.user} />
+        }
+      </ContainerInformationUser>
+
+      <ContainerRepositories>
+        <ContainerCard>
           {
-            this.props?.user && <UserInformation userInfo={this.props?.user} />
+            profile.repositories
+              .map((repository: any) => (
+                <CardRepository key={repository.id} repository={repository} />
+              ))
           }
-        </ContainerInformationUser>
-
-        <ContainerRepositories>
-          <ContainerCard>
-            {
-              this.props?.repositories
-                .map((repository: any) => (
-                  <CardRepository key={repository.id} repository={repository} />
-                ))
-            }
-          </ContainerCard>
-        </ContainerRepositories>
-      </Container>
-    );
-  }
-}
+        </ContainerCard>
+      </ContainerRepositories>
+    </Container>
+  );
+};
 
 const mapStateToProps = (state: any) => ({
   repositories: state.gitHub.repositories,
