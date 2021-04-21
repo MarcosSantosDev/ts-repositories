@@ -12,7 +12,7 @@ import GlobalStyle from '../../styles/global';
 import usePersistedState from '../../hooks/usePersistedState';
 
 import Navbar from '../../components/Navbar';
-import Repositories from '../Repositories';
+import Routes from '../../router';
 
 import { Container } from './styled';
 
@@ -30,7 +30,7 @@ const Main = () => {
           <Container>
             <GlobalStyle />
             <Navbar toggleTheme={toggleTheme} />
-            <Repositories />
+            <Routes />
           </Container>
         </ThemeProvider>
       </Provider>

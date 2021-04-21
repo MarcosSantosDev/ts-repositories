@@ -5,5 +5,5 @@ export const Container = styled.main`
   grid-template-areas:
       "header"
       "content";
-  grid-template-rows: 50px auto;
+  grid-template-rows: 62px auto;
 `;
