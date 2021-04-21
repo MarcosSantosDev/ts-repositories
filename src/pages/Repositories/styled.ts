@@ -36,10 +36,8 @@ export const ContentTitle = styled.p`
   min-width: 120px;
   border-bottom: 2px solid #f9826c;
   font-weight: 600;
+  font-size: 16px;
 
-  > h3 {
-    font-size: 16px;
-  }
   > svg {
     margin-right: 5px;
   }

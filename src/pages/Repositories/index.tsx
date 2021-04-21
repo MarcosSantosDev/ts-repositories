@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
-
-import {
-  listRepositoriesByUserName,
-  getUser,
-} from '../../services/GitHub/repositories';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import { iconLoader } from '../../utils/iconLoader';
 
 import CardRepository from '../../components/CardRepository';
 import UserInformation from '../../components/UserInformation';
+import * as thunkRepositories from '../../redux/thunks/gitHub';
 
-import { RepositoryProps, UserProps } from '../../types';
+import { UserProps } from '../../types';
 
 import {
   Container,
@@ -21,54 +18,63 @@ import {
   ContainerCard,
 } from './styled';
 
-const Repositories = () => {
-  const [repositories, setRepositories] = useState<RepositoryProps[]>([]);
-  const [userData, setUserData] = useState<UserProps>();
+interface StateProps {}
 
-  const handleGetUser = async () => {
-    const user = await getUser('MarcosSantosDev');
-    setUserData(user);
-  };
+interface RepositoriesProps {
+  getAllRepositories: Function;
+  getUser: Function;
+  repositories: any[];
+  user: UserProps;
+}
 
-  const handleRepositories = async () => {
-    const repositoriesList = await listRepositoriesByUserName('MarcosSantosDev');
-    const repositoriesPersonal = repositoriesList.filter((repository) => repository.fork === false);
-    repositoriesPersonal.length = 6;
-    setRepositories(repositoriesPersonal);
-  };
+class Repositories extends React.Component<RepositoriesProps, StateProps> {
+  componentDidMount() {
+    const { getAllRepositories, getUser } = this.props;
+    const user = 'MarcosSantosDev';
 
-  useEffect(() => {
-    handleGetUser();
-    handleRepositories();
-  }, []);
+    getAllRepositories(user);
+    getUser(user);
+  }
 
-  return (
-    <Container>
-      <SubMenu>
-        <ContentTitle>
-          {iconLoader('book', 18)}
-          <h3>Overview</h3>
-        </ContentTitle>
-      </SubMenu>
+  render() {
+    return (
+      <Container>
+        <SubMenu>
+          <ContentTitle>
+            {iconLoader('book', 18)}
+            Overview
+          </ContentTitle>
+        </SubMenu>
 
-      <ContainerInformationUser>
-        {
-          userData && <UserInformation userInfo={userData} />
-        }
-      </ContainerInformationUser>
-
-      <ContainerRepositories>
-        <ContainerCard>
+        <ContainerInformationUser>
           {
-            repositories
-              .map((repository) => (
-                <CardRepository key={repository.id} repository={repository} />
-              ))
+            this.props?.user && <UserInformation userInfo={this.props?.user} />
           }
-        </ContainerCard>
-      </ContainerRepositories>
-    </Container>
-  );
-};
+        </ContainerInformationUser>
 
-export default Repositories;
+        <ContainerRepositories>
+          <ContainerCard>
+            {
+              this.props?.repositories
+                .map((repository: any) => (
+                  <CardRepository key={repository.id} repository={repository} />
+                ))
+            }
+          </ContainerCard>
+        </ContainerRepositories>
+      </Container>
+    );
+  }
+}
+
+const mapStateToProps = (state: any) => ({
+  repositories: state.gitHub.repositories,
+  user: state.gitHub.user,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  getAllRepositories: (user: string) => dispatch(thunkRepositories.getAllRepositories(user)),
+  getUser: (user: string) => dispatch(thunkRepositories.getUser(user)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Repositories);

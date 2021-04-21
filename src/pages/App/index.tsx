@@ -1,5 +1,8 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
+
+import store from '../../redux/store';
 
 import light from '../../styles/themes/light';
 import dark from '../../styles/themes/dark';
@@ -22,13 +25,15 @@ const Main = () => {
 
   return (
     <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <Container>
-          <GlobalStyle />
-          <Navbar toggleTheme={toggleTheme} />
-          <Repositories />
-        </Container>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Container>
+            <GlobalStyle />
+            <Navbar toggleTheme={toggleTheme} />
+            <Repositories />
+          </Container>
+        </ThemeProvider>
+      </Provider>
     </React.StrictMode>
   );
 };
