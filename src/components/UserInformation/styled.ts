@@ -56,7 +56,7 @@ export const ContentBiograph = styled.p`
 export const ContentActives = styled.div`
   grid-area: actives;
   display: flex;
-  aling-items: center;
+  align-items: center;
 `;
 
 export const Active = styled.span`
@@ -70,7 +70,7 @@ export const Active = styled.span`
 `;
 
 export const Link = styled.a`
-  color: ${(props) => props.theme.colors.text};
+  color: #c9d1d9;
   max-width: 280px;
   text-decoration: none;
   white-space: nowrap;

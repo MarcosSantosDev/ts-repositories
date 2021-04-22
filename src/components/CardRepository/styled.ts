@@ -28,8 +28,8 @@ export const Card = styled.article`
   grid-template-rows: auto auto auto;
   grid-row-gap: 5px;
   min-height: 120px;
-  background: ${(props) => props.theme.colors.background};
-  color: ${(props) => props.theme.colors.text};
+  background: #0d1117;
+  color: #c9d1d9;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
 `;
@@ -55,7 +55,7 @@ export const WrapperFeature = styled.div`
   grid-area: actives;
 
   display: flex;
-  aling-items: center;
+  align-items: center;
   width: 100%;
   padding: 0 10px;
 `;
@@ -64,7 +64,7 @@ export const FeatureDetails = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: 5px;
-  aling-items: center;
+  align-items: center;
   margin-right: 15px;
 `;
 

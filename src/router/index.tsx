@@ -7,10 +7,12 @@ import {
 
 import Repositories from '../pages/Repositories';
 import NotFound from '../pages/NotFound';
+import Navbar from '../components/Navbar';
 
 export default function App() {
   return (
     <Router>
+      <Navbar />
       <Switch>
         <Route exact path="/404" component={NotFound} />
         <Route exact path="/:username" component={Repositories} />

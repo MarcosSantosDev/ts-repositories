@@ -1,54 +1,39 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import Switch from 'react-switch';
-import { shade } from 'polished';
+import React from 'react';
+import { Link } from 'react-router-dom';
+// import Switch from 'react-switch';
+// import { shade } from 'polished';
 
 import { iconLoader } from '../../utils/iconLoader';
 
 import {
   Container,
-  NavbarLogo,
-  NavbarActions,
-  IconTitle,
-  AlingCenter,
+  Nav,
+  InputWrapper,
+  InputSearch,
+  IconWrapper,
+  Ul,
+  Li,
 } from './styled';
 
-interface NavbarProps {
-  toggleTheme(): void;
-}
-
-const Navbar = ({ toggleTheme }: NavbarProps) => {
-  const { colors, title } = useContext(ThemeContext);
-
-  return (
-    <Container>
-      <NavbarLogo>
-        <IconTitle>{iconLoader('github', 32)}</IconTitle>
-        <h3>GitHub API</h3>
-      </NavbarLogo>
-      <NavbarActions>
-        <Switch
-          onChange={toggleTheme}
-          checked={title === 'dark'}
-          uncheckedIcon={(
-            <AlingCenter>
-              {iconLoader('sun', 14)}
-            </AlingCenter>
-          )}
-          checkedIcon={(
-            <AlingCenter>
-              {iconLoader('moon', 14)}
-            </AlingCenter>
-          )}
-          height={20}
-          width={48}
-          handleDiameter={20}
-          offColor={shade(0.15, colors.secondary)}
-          onColor={colors.secondary}
+const Navbar = () => (
+  <Container>
+    <Nav>
+      <IconWrapper>{iconLoader('github', 32)}</IconWrapper>
+      <InputWrapper>
+        <InputSearch
+          type="text"
+          placeholder="Search or jump to…"
         />
-      </NavbarActions>
-    </Container>
-  );
-};
+        <div className="input-hack">/</div>
+      </InputWrapper>
+      <Ul>
+        <Li><Link to={window.location.pathname}>Pull requests</Link></Li>
+        <Li><Link to={window.location.pathname}>Issues</Link></Li>
+        <Li><Link to={window.location.pathname}>Marketplace</Link></Li>
+        <Li><Link to={window.location.pathname}>Explore</Link></Li>
+      </Ul>
+    </Nav>
+  </Container>
+);
 
 export default Navbar;

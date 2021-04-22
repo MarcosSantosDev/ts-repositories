@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    background: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.text};
+    background: #0d1117;
+    color: #c9d1d9;
   }
 `;
