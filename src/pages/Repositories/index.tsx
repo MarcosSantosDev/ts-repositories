@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
-import { iconLoader } from '../../utils/iconLoader';
-
 import CardRepository from '../../components/CardRepository';
 import UserInformation from '../../components/UserInformation';
 import * as thunkRepositories from '../../redux/thunks/gitHub';
@@ -14,8 +12,6 @@ import {
   Container,
   ContainerInformationUser,
   ContainerRepositories,
-  SubMenu,
-  ContentTitle,
   ContainerCard,
 } from './styled';
 
@@ -80,13 +76,6 @@ const Repositories = ({
 
   return (
     <Container>
-      <SubMenu>
-        <ContentTitle>
-          {iconLoader('book', 18)}
-          Overview
-        </ContentTitle>
-      </SubMenu>
-
       <ContainerInformationUser>
         {
           profile.user && <UserInformation userInfo={profile.user} />

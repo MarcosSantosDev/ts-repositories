@@ -36,7 +36,7 @@ const CardRepository = ({ repository }: PropsCardRepository) => {
   return (
     <Card>
       <RepositoryName>
-        {iconLoader('repository', 16)}
+        {iconLoader('closedbook', 16)}
         {' '}
         <Link href={repository.html_url} target="blank">
           {repository.name}
