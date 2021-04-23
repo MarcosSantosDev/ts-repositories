@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconType } from 'react-icons/lib';
-import { AiOutlineStar, AiOutlineLink } from 'react-icons/ai';
+import { AiOutlineStar, AiOutlineLink, AiOutlineProject } from 'react-icons/ai';
 import { FaRegBuilding } from 'react-icons/fa';
 import {
   GoRepo,
@@ -10,9 +10,10 @@ import {
   GoMarkGithub,
   GoOrganization,
   GoCalendar,
-  GoBook,
 } from 'react-icons/go';
-import { BsMoon, BsSun } from 'react-icons/bs';
+import { BsMoon, BsSun, BsBook } from 'react-icons/bs';
+import { BiBookBookmark } from 'react-icons/bi';
+import { FiBox } from 'react-icons/fi';
 
 type Icon = {
   name: string,
@@ -21,18 +22,21 @@ type Icon = {
 
 const icons: Icon[] = [
   { name: 'calendar', Icon: GoCalendar },
-  { name: 'book', Icon: GoBook },
+  { name: 'openedbook', Icon: BsBook },
+  { name: 'closedbook', Icon: BiBookBookmark },
   { name: 'repository', Icon: GoRepo },
   { name: 'github', Icon: GoMarkGithub },
   { name: 'organization', Icon: GoOrganization },
   { name: 'star', Icon: AiOutlineStar },
   { name: 'link', Icon: AiOutlineLink },
+  { name: 'project', Icon: AiOutlineProject },
   { name: 'location', Icon: GoLocation },
   { name: 'officeBuilding', Icon: FaRegBuilding },
   { name: 'forked', Icon: GoRepoForked },
   { name: 'law', Icon: GoLaw },
   { name: 'moon', Icon: BsMoon },
   { name: 'sun', Icon: BsSun },
+  { name: 'box', Icon: FiBox },
 ];
 
 export const iconLoader = (iconName: string, fontSize?: string | number): JSX.Element => {

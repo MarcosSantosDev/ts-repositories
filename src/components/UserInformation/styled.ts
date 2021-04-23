@@ -27,6 +27,7 @@ export const ContainerAvatar = styled.header`
   grid-area: image;
   display: flex;
   justify-content: center;
+  z-index: 3;
 `;
 
 export const ImgAvatar = styled.img`
