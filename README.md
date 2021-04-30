@@ -4,14 +4,13 @@
   <img src="https://img.shields.io/github/contributors/MarcosSantosDev/ts-repositories" />
 </p>
 
-#### This is an application that lists a user's repositories, with a choice between GitHub or GitLab providers.
+#### This is an app is a clone of the GitHub dashboard.
 
 Data consumption APIs:
 - [GitHub API](https://developer.github.com/v3/)
 
-![Screenshot](https://user-images.githubusercontent.com/26147340/95765529-6a186000-0c88-11eb-8683-98fb493a2aef.png)
+![Screenshot](https://user-images.githubusercontent.com/26147340/116647479-0d913f80-a951-11eb-94f1-cc7eb8da6cc4.png)
 
-- [GitLab API](https://docs.gitlab.com/ee/api/)
 
 ## Getting Started
 
