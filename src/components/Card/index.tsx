@@ -31,10 +31,10 @@ export type languageColorProps = {
 }
 
 const limitTextOnCard = (text: string, limit: number) => {
-  if (text.length <= limit) {
-    return text;
+  if (text && text.length > limit) {
+    return `${text.slice(0, limit)}...`;
   }
-  return `${text.slice(0, limit)}...`;
+  return text;
 };
 
 const handleGetColor = (color: any) => {
@@ -47,7 +47,7 @@ const Card = ({ repository }: CardProps) => (
   <Container>
     <RepositoryWrapper>
       <IconWrapper>{iconLoader('closedbook', 16)}</IconWrapper>
-      <RepositoryLink href="/">
+      <RepositoryLink href={repository.html_url} target="blank">
         <RepositoryName>{repository.name}</RepositoryName>
       </RepositoryLink>
     </RepositoryWrapper>
