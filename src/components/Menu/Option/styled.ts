@@ -35,7 +35,7 @@ export const OptionWrapper = styled.div`
   grid-template-columns: 14px auto auto;
   grid-column-gap: 10px;
   justify-content: center;
-  padding: 0 15px 12px;
+  padding: 0 15px 10px;
 `;
 
 export const OptionIcon = styled.div`
@@ -47,7 +47,7 @@ export const OptionIcon = styled.div`
 export const OptionLabel = styled.p`
   white-space: nowrap;
   color: #8b949e;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 export const OptionCounter = styled.div`
