@@ -11,9 +11,9 @@ import {
   GoOrganization,
   GoCalendar,
 } from 'react-icons/go';
-import { BsMoon, BsSun, BsBook } from 'react-icons/bs';
-import { BiBookBookmark } from 'react-icons/bi';
+import { BsMoon, BsSun } from 'react-icons/bs';
 import { FiBox } from 'react-icons/fi';
+import { GiBookmark, GiBookmarklet } from 'react-icons/gi';
 
 type Icon = {
   name: string,
@@ -22,8 +22,8 @@ type Icon = {
 
 const icons: Icon[] = [
   { name: 'calendar', Icon: GoCalendar },
-  { name: 'openedbook', Icon: BsBook },
-  { name: 'closedbook', Icon: BiBookBookmark },
+  { name: 'openedbook', Icon: GiBookmarklet },
+  { name: 'closedbook', Icon: GiBookmark },
   { name: 'repository', Icon: GoRepo },
   { name: 'github', Icon: GoMarkGithub },
   { name: 'organization', Icon: GoOrganization },

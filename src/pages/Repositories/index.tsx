@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
-import CardRepository from '../../components/CardRepository';
+import Card from '../../components/Card';
 import UserInformation from '../../components/UserInformation';
 import * as thunkRepositories from '../../redux/thunks/gitHub';
 
@@ -86,9 +86,12 @@ const Repositories = ({
         <ContainerCard>
           {
             profile.repositories
-              .map((repository: any) => (
-                <CardRepository key={repository.id} repository={repository} />
-              ))
+              .map((repository: any, index: number) => {
+                if (index < 6) {
+                  return <Card key={repository.id} repository={repository} />;
+                }
+                return null;
+              })
           }
         </ContainerCard>
       </ContainerRepositories>

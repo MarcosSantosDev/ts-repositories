@@ -4,7 +4,7 @@ export const Container = styled.section`
   grid-area: content;
   display: grid;
   grid-template-areas: "userInformations repositories";
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 340px 1fr;
   grid-template-rows: auto auto;
   grid-row-gap: 40px;
 `;
@@ -23,5 +23,5 @@ export const ContainerCard = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
-  margin: 20px 10px;
+  margin: 20px 50px 20px;
 `;
